@@ -1,0 +1,64 @@
+@use '../../styles/variables' as *;
+@use '../../styles/mixins' as *;
+
+.card {
+  @include card-shadow;
+  background: $card-bg;
+  border-radius: $card-border-radius;
+  padding: $spacing-md;
+  margin-bottom: $spacing-sm;
+  cursor: grab;
+  min-height: 40px;
+
+  &:active {
+    cursor: grabbing;
+  }
+
+  &.dragging {
+    opacity: 0.9;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+  }
+}
+
+.title {
+  color: $card-text;
+  font-size: $font-size-base;
+  word-wrap: break-word;
+  white-space: pre-wrap;
+
+  &:hover {
+    text-decoration: underline;
+  }
+}
+
+.input {
+  width: 100%;
+  min-height: 40px;
+  border: 2px solid $header-bg;
+  border-radius: 4px;
+  padding: $spacing-sm;
+  font-size: $font-size-base;
+  font-family: inherit;
+  resize: none;
+
+  &:focus {
+    outline: none;
+  }
+}
+
+.commentBadge {
+  margin-top: $spacing-sm;
+  font-size: $font-size-sm;
+  color: #5e6c84;
+  background: none;
+  border: none;
+  cursor: pointer;
+  padding: 0;
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+
+  &:hover {
+    text-decoration: underline;
+  }
+}

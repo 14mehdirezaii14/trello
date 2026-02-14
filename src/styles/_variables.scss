@@ -1,0 +1,39 @@
+// Colors - Trello-like
+$header-bg: #026aa7;
+$header-text: #fff;
+$board-bg: rgb(46, 126, 175);
+$list-bg: #ebecf0;
+$list-header-text: #172b4d;
+$card-bg: #fff;
+$card-text: #172b4d;
+$card-shadow: rgba(0, 0, 0, 0.1);
+$border-color: #091e4221;
+$placeholder-bg: #091e4221;
+$danger: #b04632;
+$input-border: #091e4221;
+
+// Typography
+$font-family:
+  -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen, Ubuntu,
+  sans-serif;
+$font-size-base: 14px;
+$font-size-sm: 12px;
+$font-size-lg: 16px;
+
+// Spacing
+$spacing-xs: 4px;
+$spacing-sm: 8px;
+$spacing-md: 12px;
+$spacing-lg: 16px;
+$spacing-xl: 24px;
+
+// Dimensions
+$header-height: 48px;
+$list-width: 272px;
+$list-min-height: 80px;
+$card-border-radius: 8px;
+$list-border-radius: 8px;
+
+// Breakpoints
+$breakpoint-mobile: 480px;
+$breakpoint-tablet: 768px;

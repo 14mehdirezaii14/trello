@@ -1,0 +1,178 @@
+@use "../../styles/variables" as *;
+@use "../../styles/mixins" as *;
+
+.list {
+  @include list-style;
+  width: $list-width;
+  flex-shrink: 0;
+  padding: $spacing-md;
+  display: flex;
+  flex-direction: column;
+  max-height: calc(100vh - #{$header-height} - #{$spacing-lg * 2});
+
+  &.droppable {
+    background: darken($list-bg, 4%);
+  }
+}
+
+.listHeader {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: $spacing-md;
+  gap: $spacing-sm;
+}
+
+.listTitle {
+  margin: 0;
+  font-size: $font-size-base;
+  font-weight: 600;
+  color: $list-header-text;
+  flex: 1;
+  cursor: pointer;
+  padding: $spacing-xs $spacing-sm;
+  border-radius: 4px;
+
+  &:hover {
+    background: $placeholder-bg;
+  }
+}
+
+.titleInput {
+  flex: 1;
+  padding: $spacing-xs $spacing-sm;
+  border: 2px solid $header-bg;
+  border-radius: 4px;
+  font-size: $font-size-base;
+  font-weight: 600;
+
+  &:focus {
+    outline: none;
+  }
+}
+
+.menuWrap {
+  position: relative;
+}
+
+.menuBtn {
+  background: none;
+  border: none;
+  cursor: pointer;
+  font-size: 18px;
+  color: #5e6c84;
+  padding: $spacing-xs;
+
+  &:hover {
+    color: $list-header-text;
+  }
+}
+
+.menuBackdrop {
+  position: fixed;
+  inset: 0;
+  z-index: 1;
+}
+
+.menu {
+  position: absolute;
+  top: 100%;
+  right: 0;
+  margin-top: $spacing-xs;
+  background: $card-bg;
+  border-radius: 4px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+  padding: $spacing-xs;
+  z-index: 2;
+  min-width: 120px;
+}
+
+.menuItem {
+  display: block;
+  width: 100%;
+  padding: $spacing-sm $spacing-md;
+  border: none;
+  background: none;
+  cursor: pointer;
+  font-size: $font-size-base;
+  color: $danger;
+
+  &:hover {
+    background: $list-bg;
+  }
+}
+
+.cards {
+  flex: 1;
+  overflow-y: auto;
+  min-height: 8px;
+}
+
+.addCardBtn {
+  width: 100%;
+  padding: $spacing-sm;
+  background: transparent;
+  border: none;
+  border-radius: 4px;
+  color: #5e6c84;
+  cursor: pointer;
+  text-align: left;
+  font-size: $font-size-base;
+  margin-top: $spacing-sm;
+
+  &:hover {
+    background: $placeholder-bg;
+    color: $list-header-text;
+  }
+}
+
+.addCardForm {
+  margin-top: $spacing-sm;
+}
+
+.cardTextarea {
+  width: 100%;
+  min-height: 60px;
+  padding: $spacing-md;
+  border: 2px solid $header-bg;
+  border-radius: 4px;
+  font-family: inherit;
+  font-size: $font-size-base;
+  resize: none;
+  margin-bottom: $spacing-sm;
+
+  &:focus {
+    outline: none;
+  }
+}
+
+.addCardActions {
+  display: flex;
+  gap: $spacing-sm;
+}
+
+.addCardSubmit {
+  background: $header-bg;
+  color: $header-text;
+  border: none;
+  padding: $spacing-sm $spacing-md;
+  border-radius: 4px;
+  cursor: pointer;
+  font-size: $font-size-base;
+
+  &:hover {
+    filter: brightness(1.1);
+  }
+}
+
+.addCardCancel {
+  background: none;
+  border: none;
+  color: #5e6c84;
+  cursor: pointer;
+  font-size: $font-size-base;
+
+  &:hover {
+    color: $list-header-text;
+  }
+}

@@ -1,0 +1,42 @@
+@use "../../styles/variables" as *;
+@use "../../styles/mixins" as *;
+
+.header {
+  height: $header-height;
+  // background: $header-bg;
+  color: $header-text;
+  display: flex;
+  align-items: center;
+  padding: 0 $spacing-lg;
+  flex-shrink: 0;
+}
+
+.title {
+  margin: 0;
+  font-size: $font-size-lg;
+  font-weight: 600;
+  cursor: pointer;
+  padding: $spacing-xs $spacing-sm;
+  border-radius: 4px;
+
+  &:hover {
+    background: rgba(255, 255, 255, 0.2);
+  }
+}
+
+.input {
+  background: rgba(255, 255, 255, 0.2);
+  border: 2px solid transparent;
+  border-radius: 4px;
+  color: $header-text;
+  font-size: $font-size-lg;
+  font-weight: 600;
+  padding: $spacing-xs $spacing-sm;
+  width: 100%;
+  max-width: 400px;
+
+  &:focus {
+    outline: none;
+    background: rgba(255, 255, 255, 0.25);
+  }
+}

@@ -1,0 +1,137 @@
+@use '../../styles/variables' as *;
+@use '../../styles/mixins' as *;
+
+.backdrop {
+  position: fixed;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.5);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 1000;
+  padding: $spacing-lg;
+}
+
+.modal {
+  background: $card-bg;
+  border-radius: $list-border-radius;
+  max-width: 480px;
+  width: 100%;
+  max-height: 80vh;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.2);
+}
+
+.header {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  padding: $spacing-lg;
+  border-bottom: 1px solid $border-color;
+}
+
+.cardTitle {
+  margin: 0;
+  font-size: $font-size-lg;
+  font-weight: 600;
+  color: $list-header-text;
+  flex: 1;
+}
+
+.closeBtn {
+  background: none;
+  border: none;
+  font-size: 24px;
+  cursor: pointer;
+  color: #5e6c84;
+  padding: 0 $spacing-xs;
+  line-height: 1;
+
+  &:hover {
+    color: $list-header-text;
+  }
+}
+
+.section {
+  padding: $spacing-lg;
+  overflow-y: auto;
+  flex: 1;
+}
+
+.sectionTitle {
+  margin: 0 0 $spacing-md;
+  font-size: $font-size-base;
+  font-weight: 600;
+  color: $list-header-text;
+}
+
+.commentList {
+  margin-bottom: $spacing-lg;
+}
+
+.commentItem {
+  background: $list-bg;
+  padding: $spacing-md;
+  border-radius: 4px;
+  margin-bottom: $spacing-sm;
+}
+
+.commentText {
+  margin: 0 0 $spacing-xs;
+  font-size: $font-size-base;
+}
+
+.commentDate {
+  font-size: $font-size-sm;
+  color: #5e6c84;
+}
+
+.empty {
+  margin: 0;
+  color: #5e6c84;
+  font-size: $font-size-sm;
+}
+
+.addComment {
+  display: flex;
+  flex-direction: column;
+  gap: $spacing-sm;
+}
+
+.textarea {
+  width: 100%;
+  min-height: 80px;
+  padding: $spacing-md;
+  border: 1px solid $input-border;
+  border-radius: 4px;
+  font-family: inherit;
+  font-size: $font-size-base;
+  resize: vertical;
+
+  &:focus {
+    outline: none;
+    border-color: $header-bg;
+  }
+}
+
+.submitBtn {
+  align-self: flex-end;
+  background: $header-bg;
+  color: $header-text;
+  border: none;
+  padding: $spacing-sm $spacing-lg;
+  border-radius: 4px;
+  cursor: pointer;
+  font-size: $font-size-base;
+
+  &:hover:not(:disabled) {
+    filter: brightness(1.1);
+  }
+
+  &:disabled {
+    opacity: 0.6;
+    cursor: not-allowed;
+  }
+}

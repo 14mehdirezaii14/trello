@@ -1,0 +1,111 @@
+@use "../../styles/variables" as *;
+@use "../../styles/mixins" as *;
+
+.board {
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  background: $board-bg;
+}
+
+.boardBody {
+  flex: 1;
+  overflow: auto;
+  padding: $spacing-lg;
+}
+
+.listsContainer {
+  display: flex;
+  gap: $spacing-lg;
+  align-items: flex-start;
+  min-height: 200px;
+}
+
+.addList {
+  flex-shrink: 0;
+  width: $list-width;
+}
+
+.addListBtn {
+  width: 100%;
+  padding: $spacing-md;
+  background: $placeholder-bg;
+  border: none;
+  border-radius: $list-border-radius;
+  color: $header-text;
+  cursor: pointer;
+  font-size: $font-size-base;
+  text-align: left;
+
+  &:hover {
+    background: darken($placeholder-bg, 5%);
+  }
+}
+
+.addListForm {
+  @include list-style;
+  padding: $spacing-md;
+  background: $list-bg;
+}
+
+.addListInput {
+  width: 100%;
+  padding: $spacing-sm $spacing-md;
+  border: 2px solid $header-bg;
+  border-radius: 4px;
+  font-size: $font-size-base;
+  margin-bottom: $spacing-sm;
+
+  &:focus {
+    outline: none;
+  }
+}
+
+.addListActions {
+  display: flex;
+  gap: $spacing-sm;
+}
+
+.addListSubmit {
+  background: $header-bg;
+  color: $header-text;
+  border: none;
+  padding: $spacing-sm $spacing-md;
+  border-radius: 4px;
+  cursor: pointer;
+
+  &:hover {
+    filter: brightness(1.1);
+  }
+}
+
+.addListCancel {
+  background: none;
+  border: none;
+  color: #5e6c84;
+  cursor: pointer;
+
+  &:hover {
+    color: $list-header-text;
+  }
+}
+
+:global(.list-dragging) {
+  opacity: 0.9;
+}
+
+// @include tablet {
+//   .listsContainer {
+//     flex-wrap: wrap;
+//   }
+// }
+
+@include mobile {
+  .boardBody {
+    padding: $spacing-sm;
+  }
+
+  .listsContainer {
+    gap: $spacing-sm;
+  }
+}
