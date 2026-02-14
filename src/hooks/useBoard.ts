@@ -117,7 +117,11 @@ export function useBoard() {
       return list;
     });
     if (!card) return;
-    const updatedCard = { ...card, listId: targetListId };
+    // TS doesn't narrow `card` after the guard because it was assigned inside a .map() callback,
+    // so it still types as Card | null and { ...card } triggers "Spread types may only be created from object types".
+    // Assigning to a variable with explicit type Card fixes the spread.
+    const cardToMove: Card = card;
+    const updatedCard = { ...cardToMove, listId: targetListId };
     const listsWithCard = listsWithoutCard.map((list) => {
       if (list.id !== targetListId) return list;
       const cards = [...list.cards];
