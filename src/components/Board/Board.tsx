@@ -24,6 +24,7 @@ interface BoardProps {
   onAddList: (title: string) => void;
   onListTitleChange: (listId: string, title: string) => void;
   onListDelete: (listId: string) => void;
+  onDeleteAllCardsInList: (listId: string) => void;
   onReorderLists: (listIds: string[]) => void;
   onAddCard: (listId: string, title: string) => void;
   onCardTitleChange: (cardId: string, title: string) => void;
@@ -39,6 +40,7 @@ export function Board({
   onAddList,
   onListTitleChange,
   onListDelete,
+  onDeleteAllCardsInList,
   onReorderLists,
   onAddCard,
   onCardTitleChange,
@@ -150,6 +152,7 @@ export function Board({
                   list={list}
                   onListTitleChange={(title) => onListTitleChange(list.id, title)}
                   onListDelete={() => onListDelete(list.id)}
+                  onDeleteAllCards={() => onDeleteAllCardsInList(list.id)}
                   onAddCard={(title) => onAddCard(list.id, title)}
                   onCardTitleChange={onCardTitleChange}
                   onOpenCommentModal={setCommentModalCardId}

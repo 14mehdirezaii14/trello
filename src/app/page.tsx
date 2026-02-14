@@ -10,6 +10,7 @@ export default function Home() {
     addList,
     updateList,
     deleteList,
+    deleteAllCardsInList,
     reorderLists,
     addCard,
     updateCard,
@@ -35,6 +36,7 @@ export default function Home() {
         onAddList={addList}
         onListTitleChange={(listId, title) => updateList(listId, { title })}
         onListDelete={deleteList}
+        onDeleteAllCardsInList={deleteAllCardsInList}
         onReorderLists={reorderLists}
         onAddCard={addCard}
         onCardTitleChange={(cardId, title) => updateCard(cardId, { title })}

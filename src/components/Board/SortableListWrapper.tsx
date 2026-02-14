@@ -9,6 +9,7 @@ interface SortableListWrapperProps {
   list: ListType;
   onListTitleChange: (title: string) => void;
   onListDelete: () => void;
+  onDeleteAllCards: () => void;
   onAddCard: (title: string) => void;
   onCardTitleChange: (cardId: string, title: string) => void;
   onOpenCommentModal: (cardId: string) => void;
@@ -18,6 +19,7 @@ export function SortableListWrapper({
   list,
   onListTitleChange,
   onListDelete,
+  onDeleteAllCards,
   onAddCard,
   onCardTitleChange,
   onOpenCommentModal,
@@ -46,6 +48,7 @@ export function SortableListWrapper({
         list={list}
         onListTitleChange={onListTitleChange}
         onListDelete={onListDelete}
+        onDeleteAllCards={onDeleteAllCards}
         onAddCard={onAddCard}
         onCardTitleChange={onCardTitleChange}
         onOpenCommentModal={onOpenCommentModal}

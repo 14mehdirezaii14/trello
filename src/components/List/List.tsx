@@ -11,6 +11,7 @@ interface ListProps {
   list: ListType;
   onListTitleChange: (title: string) => void;
   onListDelete: () => void;
+  onDeleteAllCards: () => void;
   onAddCard: (title: string) => void;
   onCardTitleChange: (cardId: string, title: string) => void;
   onOpenCommentModal: (cardId: string) => void;
@@ -20,6 +21,7 @@ export function List({
   list,
   onListTitleChange,
   onListDelete,
+  onDeleteAllCards,
   onAddCard,
   onCardTitleChange,
   onOpenCommentModal,
@@ -120,6 +122,16 @@ export function List({
                   }}
                 >
                   Delete list
+                </button>
+                <button
+                  type="button"
+                  className={styles.menuItem}
+                  onClick={() => {
+                    if (typeof window !== 'undefined' && window.confirm('Delete all cards in this list?')) onDeleteAllCards();
+                    setMenuOpen(false);
+                  }}
+                >
+                  Delete all cards
                 </button>
               </div>
             </>

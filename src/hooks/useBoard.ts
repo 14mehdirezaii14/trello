@@ -55,6 +55,16 @@ export function useBoard() {
     });
   }, [board]);
 
+  const deleteAllCardsInList = useCallback((listId: string) => {
+    if (!board) return;
+    setBoard({
+      ...board,
+      lists: board.lists.map((l) =>
+        l.id === listId ? { ...l, cards: [] } : l
+      ),
+    });
+  }, [board]);
+
   const reorderLists = useCallback((listIds: string[]) => {
     if (!board) return;
     const orderMap = new Map(listIds.map((id, i) => [id, i]));
@@ -178,6 +188,7 @@ export function useBoard() {
     addList,
     updateList,
     deleteList,
+    deleteAllCardsInList,
     reorderLists,
     addCard,
     updateCard,
