@@ -165,6 +165,7 @@ export function Board({
                     value={newListTitle}
                     onChange={(e) => setNewListTitle(e.target.value)}
                     onKeyDown={(e) => {
+                      if (e.key === ' ') e.stopPropagation();
                       if (e.key === 'Enter') submitNewList();
                       if (e.key === 'Escape') {
                         setShowAddList(false);

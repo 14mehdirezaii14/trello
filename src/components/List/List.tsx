@@ -81,10 +81,9 @@ export function List({
             onChange={(e) => setDraftTitle(e.target.value)}
             onBlur={submitTitle}
             onKeyDown={(e) => {
+              if (e.key === ' ') e.stopPropagation();
               if (e.key === 'Enter') submitTitle();
-              if (e.key === 'Escape') {
-                setEditingTitle(false);
-              }
+              if (e.key === 'Escape') setEditingTitle(false);
             }}
             onClick={(e) => e.stopPropagation()}
           />
@@ -148,6 +147,7 @@ export function List({
             value={newCardTitle}
             onChange={(e) => setNewCardTitle(e.target.value)}
             onKeyDown={(e) => {
+              if (e.key === ' ') e.stopPropagation(); // let Space type in textarea; DnD uses Space to start drag
               if (e.key === 'Enter' && !e.shiftKey) {
                 e.preventDefault();
                 submitCard();

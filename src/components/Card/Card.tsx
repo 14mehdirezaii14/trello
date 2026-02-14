@@ -69,6 +69,7 @@ export function Card({ card, onTitleChange, onOpenComments }: CardProps) {
           onChange={(e) => setValue(e.target.value)}
           onBlur={submit}
           onKeyDown={(e) => {
+            if (e.key === ' ') e.stopPropagation();
             if (e.key === 'Enter' && !e.shiftKey) {
               e.preventDefault();
               submit();
